@@ -38,4 +38,13 @@ class FirestoreService {
       throw Exception('Failed to get user');
     }
   }
+  Future<bool> checkUserDataExists(String userId) async {
+    try {
+      DocumentSnapshot userDataSnapshot = await _firestore.collection('users').doc(userId).get();
+      return userDataSnapshot.exists;
+    } catch (e) {
+      print('Error checking user data: $e');
+      return false;
+    }
+  }
 }

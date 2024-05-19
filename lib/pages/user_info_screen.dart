@@ -23,11 +23,31 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   TextEditingController healthController = TextEditingController();
   TextEditingController foodTypeController = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+    // Check if user data is already uploaded
+    checkUserDataUploaded();
+  }
+
+  void checkUserDataUploaded() async {
+    User? currentUser = AuthServices().getCurrentUser();
+
+    if (currentUser != null) {
+      // Assuming you have a method in FirestoreService to check if user data exists
+      bool userDataExists = await FirestoreService().checkUserDataExists(currentUser.uid);
+
+      if (userDataExists) {
+        // User data already uploaded, navigate to HomeScreen
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+      }
+    }
+  }
 
   void onContinueCilcked() {
     User? currentUser = AuthServices().getCurrentUser();
 
-    if(currentUser != null){
+    if (currentUser != null) {
       String email = currentUser.email.toString();
       String uid = currentUser.uid.toString();
 
@@ -45,20 +65,18 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
 
       FirestoreService().addUser(user).then((_) {
         print('User added successfully');
+        // Navigate to HomeScreen after user data is uploaded
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
       }).catchError((e) {
         print('Failed to add user: $e');
       });
-
-      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()),);
     }
-
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('User Information'),),
+      appBar: AppBar(title: Text('User Information')),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -82,8 +100,6 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
               Center(
                 child: ElevatedButton(
                   onPressed: onContinueCilcked,
-                    // Add functionality to continue button
-                    // For example, you can navigate to the next screen,
                   child: Text('Continue'),
                 ),
               ),
