@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutriscan/component/my_button.dart';
 import 'package:nutriscan/component/mytext_field.dart';
+import 'package:nutriscan/pages/user_info_screen.dart';
 import 'package:nutriscan/services/authservice.dart';
 
 class Signin extends StatefulWidget {
@@ -32,13 +34,12 @@ class _SigninState extends State<Signin> {
     );
 
     try {
-      await _authServices.signInWithEmailPassword(
-          emailController.text, passwordController.text);
+      await _authServices.signInWithEmailPassword(emailController.text, passwordController.text);
 
       // Hide progress indicator
       // ignore: use_build_context_synchronously
       Navigator.of(context).pop(); // Close the progress dialog
-
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => UserInfoScreen(),),);
       // Optionally, navigate to a new screen or perform any other action upon successful sign-in
     } catch (e) {
       // Hide progress indicator

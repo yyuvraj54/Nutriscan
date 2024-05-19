@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:nutriscan/firebase_options.dart';
 import 'package:nutriscan/pages/gemini_api.dart';
+import 'package:nutriscan/pages/user_info_screen.dart';
 import 'package:nutriscan/services/auth/authgate.dart';
 
 List<CameraDescription>? cameras;
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: AuthGate(),
+      home: UserInfoScreen(),
     );
   }
 }
