@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nutriscan/component/my_button.dart';
 import 'package:nutriscan/component/mytext_field.dart';
+import 'package:nutriscan/models/user_model.dart';
 import 'package:nutriscan/services/authservice.dart';
 
 class Signup extends StatefulWidget {
@@ -48,11 +50,7 @@ class _SignupState extends State<Signup> {
         Navigator.of(context).pop(); // Close the progress dialog
 
         // Show error dialog
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text(e.toString()),
-          ),
+        showDialog(context: context, builder: (context) => AlertDialog(title: Text(e.toString()),),
         );
       }
     } else {
