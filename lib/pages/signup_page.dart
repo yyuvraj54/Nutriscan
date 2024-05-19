@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nutriscan/component/my_button.dart';
 import 'package:nutriscan/component/mytext_field.dart';
 import 'package:nutriscan/models/user_model.dart';
+import 'package:nutriscan/pages/user_info_screen.dart';
 import 'package:nutriscan/services/authservice.dart';
 
 class Signup extends StatefulWidget {
@@ -15,10 +16,8 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   void signup() async {
     final _authService = AuthServices();
@@ -48,6 +47,7 @@ class _SignupState extends State<Signup> {
       } catch (e) {
         // Hide progress indicator
         Navigator.of(context).pop(); // Close the progress dialog
+
 
         // Show error dialog
         showDialog(context: context, builder: (context) => AlertDialog(title: Text(e.toString()),),
@@ -123,13 +123,7 @@ class _SignupState extends State<Signup> {
             ),
 
             //button
-            MyButton(
-              text: "Signup",
-              onTap: signup,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
+            MyButton(text: "Signup", onTap: signup,), const SizedBox(height: 25,),
 
             //forgot pasword
             Row(
