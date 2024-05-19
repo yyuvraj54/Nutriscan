@@ -1,11 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:nutriscan/pages/home_screen.dart';
+import 'package:nutriscan/pages/bottom_nav_bar/home_screen.dart';
 import 'package:nutriscan/services/auth/firestore_service.dart';
 import 'package:nutriscan/services/authservice.dart';
 
 import '../component/mytext_field.dart';
 import '../models/user_model.dart';
+import 'bottom_nav_bar/bottom_navigation.dart';
 
 class UserInfoScreen extends StatefulWidget {
   const UserInfoScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
 
       if (userDataExists) {
         // User data already uploaded, navigate to HomeScreen
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigation()));
       }
     }
   }
