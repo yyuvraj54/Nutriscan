@@ -103,7 +103,8 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
                   child: Text('Continue'),
                 ),
               ),
-              SizedBox(height: 40), // Adding extra space at the bottom for padding
+              SizedBox(height: 40), 
+              // Adding extra space at the bottom for padding
             ],
           ),
         ),

@@ -30,6 +30,7 @@ class MyTextField extends StatelessWidget {
             borderSide: BorderSide(color: Color.fromARGB(255, 112, 253, 142)),
           ),
           hintText: hintText,
+          labelStyle: TextStyle(color: Colors.blue.shade700),
           hintStyle: TextStyle(color: Colors.white), 
         ),
         

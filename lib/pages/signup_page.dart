@@ -129,7 +129,7 @@ class _SignupState extends State<Signup> {
                       MyTextField(
                         controller: nameController,
                         hintText: 'John Doe',
-                        obscureText: true,
+                        obscureText: false,
                       ),
                       const SizedBox(
                         height: 25,

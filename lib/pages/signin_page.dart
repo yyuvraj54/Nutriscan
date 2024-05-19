@@ -124,7 +124,7 @@ class _SigninState extends State<Signin> {
                         child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.7,
                             child: const Text(
-                              'Email',
+                              'Password',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 15,
@@ -133,7 +133,7 @@ class _SigninState extends State<Signin> {
                       ),
                       MyTextField(
                         controller: passwordController,
-                        hintText: 'password',
+                        hintText: '***********',
                         obscureText: true,
                       ),
                       const SizedBox(
@@ -151,7 +151,7 @@ class _SigninState extends State<Signin> {
                         ),
                         onPressed: signin,
                         child: const Text(
-                          'Sign Up',
+                          'Log in',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
@@ -162,7 +162,7 @@ class _SigninState extends State<Signin> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Already have a account?",
+                            "don't have a account?",
                             style: TextStyle(color: Colors.blue.shade600),
                           ),
                           const SizedBox(
@@ -170,11 +170,14 @@ class _SigninState extends State<Signin> {
                           ),
                           GestureDetector(
                             onTap: widget.onTap,
-                            child: Text(
-                              'Login now!',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.blue.shade800),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 10),
+                              child: Text(
+                                'SignUp now!',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue.shade800),
+                              ),
                             ),
                           )
                         ],
