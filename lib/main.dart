@@ -1,14 +1,12 @@
-import 'dart:html';
 import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:nutriscan/firebase_options.dart';
-
 import 'package:nutriscan/pages/gemini_api.dart';
+import 'package:nutriscan/services/auth/authgate.dart';
 
 List<CameraDescription>? cameras;
 
@@ -34,7 +32,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: APIPage(),
+      home: AuthGate(),
     );
   }
 }
@@ -160,7 +158,8 @@ class DisplayPictureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Display Picture')),
-      body: Image.file(File(imagePath)),
+      body: Center(child: Text('Anyhing '),)
+      //Image.file(File(imagePath)),
     );
   }
 }
