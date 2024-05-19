@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nutriscan/component/my_button.dart';
 import 'package:nutriscan/component/mytext_field.dart';
 import 'package:nutriscan/models/user_model.dart';
@@ -17,7 +19,9 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+
+  final TextEditingController confirmPasswordController =TextEditingController();
+  final TextEditingController nameController =TextEditingController();
 
   void signup() async {
     final _authService = AuthServices();
@@ -71,84 +75,173 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            //icon
-            const Icon(
-              Icons.food_bank,
-              size: 100,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-
-            //welcome message
-            const Text(
-              'Register yourself.',
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-
-            //username
-            MyTextField(
-              controller: emailController,
-              hintText: 'Email',
-              obscureText: false,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-
-            //password
-            MyTextField(
-              controller: passwordController,
-              hintText: 'password',
-              obscureText: true,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-
-            MyTextField(
-              controller: confirmPasswordController,
-              hintText: 'Confirm password',
-              obscureText: true,
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-
-            //button
-            MyButton(text: "Signup", onTap: signup,), const SizedBox(height: 25,),
-
-            //forgot pasword
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Already have a account?",
-                  style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              Stack(alignment: Alignment.bottomCenter, children: [
+                SvgPicture.asset(
+                  'lib/asset/dotedline.svg',
+                  height: 70,
                 ),
-                const SizedBox(
-                  width: 4,
-                ),
-                GestureDetector(
-                  onTap: widget.onTap,
-                  child: Text(
-                    'Login now!',
+                Text('Get Started',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.inversePrimary),
+                        fontSize: 36,
+                        fontWeight: FontWeight.w700,
+                        color: Color.fromARGB(255, 103, 229, 115)))
+              ]),
+
+              Container(
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width * 0.88,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color.fromARGB(255, 103, 229, 115)),
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SvgPicture.asset('lib/asset/signup_text.svg'),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Name',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white),
+                            )),
+                      ),
+                      MyTextField(
+                        controller: nameController,
+                        hintText: 'John Doe',
+                        obscureText: true,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Email',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white),
+                            )),
+                      ),
+                      MyTextField(
+                        controller: emailController,
+                        hintText: 'example@email.com',
+                        obscureText: false,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white),
+                            )),
+                      ),
+                      MyTextField(
+                        controller: passwordController,
+                        hintText: '***********',
+                        obscureText: true,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Confirm Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white),
+                            )),
+                      ),
+                      MyTextField(
+                        controller: confirmPasswordController,
+                        hintText: '***********',
+                        obscureText: true,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Colors.blue), // Change background color
+                          foregroundColor: MaterialStateProperty.all<Color>(
+                              Colors.white), // Change text color
+                          overlayColor: MaterialStateProperty.all<Color>(
+                              Colors.blueAccent.withOpacity(
+                                  0.1)), // Change overlay color when pressed
+                        ),
+                        onPressed: signup,
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                      SizedBox(height: 20,),
+                      Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  
+                  Text(
+                    "Already have a account?",
+                    style: TextStyle(
+                        color: Colors.blue.shade600),
                   ),
-                )
-              ],
-            )
-          ],
+                  const SizedBox(
+                    width: 4,
+                  ),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      'Login now!',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue.shade800),
+                    ),
+                  )
+                ],
+              )
+                    ],
+                  ),
+                ),
+              ),
+            
+              
+            ],
+          ),
         ),
       ),
     );
