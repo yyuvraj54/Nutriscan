@@ -1,11 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nutriscan/component/my_button.dart';
 import 'package:nutriscan/component/mytext_field.dart';
-import 'package:nutriscan/models/user_model.dart';
-import 'package:nutriscan/pages/user_info_screen.dart';
 import 'package:nutriscan/services/authservice.dart';
 
 class Signup extends StatefulWidget {
@@ -18,8 +15,8 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
+  final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =TextEditingController();
   final TextEditingController nameController =TextEditingController();
 
@@ -52,9 +49,12 @@ class _SignupState extends State<Signup> {
         // Hide progress indicator
         Navigator.of(context).pop(); // Close the progress dialog
 
-
         // Show error dialog
-        showDialog(context: context, builder: (context) => AlertDialog(title: Text(e.toString()),),
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text(e.toString()),
+          ),
         );
       }
     } else {
@@ -97,7 +97,7 @@ class _SignupState extends State<Signup> {
               ]),
 
               Container(
-                height: MediaQuery.of(context).size.height * 0.7,
+                height: MediaQuery.of(context).size.height * 0.72,
                 width: MediaQuery.of(context).size.width * 0.88,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
@@ -115,10 +115,10 @@ class _SignupState extends State<Signup> {
                         height: 25,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.7,
-                            child: Text(
+                            child: const Text(
                               'Name',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -135,10 +135,10 @@ class _SignupState extends State<Signup> {
                         height: 25,
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.7,
-                            child: Text(
+                            child: const Text(
                               'Email',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -195,7 +195,12 @@ class _SignupState extends State<Signup> {
                         height: 25,
                       ),
                       ElevatedButton(
+                        
                         style: ButtonStyle(
+                          minimumSize: MaterialStateProperty.all<Size>(
+                            Size(160, 60)
+                          ),
+                          
                           backgroundColor: MaterialStateProperty.all<Color>(
                               Colors.blue), // Change background color
                           foregroundColor: MaterialStateProperty.all<Color>(
