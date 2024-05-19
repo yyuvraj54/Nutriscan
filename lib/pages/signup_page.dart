@@ -17,8 +17,8 @@ class _SignupState extends State<Signup> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
+  final TextEditingController confirmPasswordController =TextEditingController();
+  final TextEditingController nameController =TextEditingController();
 
   void signup() async {
     final _authService = AuthServices();
@@ -82,7 +82,7 @@ class _SignupState extends State<Signup> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                height: 140,
+                height: 100,
               ),
               Stack(alignment: Alignment.bottomCenter, children: [
                 SvgPicture.asset(
@@ -97,8 +97,8 @@ class _SignupState extends State<Signup> {
               ]),
 
               Container(
-                height: MediaQuery.of(context).size.height * 0.6,
-                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: MediaQuery.of(context).size.width * 0.88,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: const Color.fromARGB(255, 103, 229, 115)),
@@ -110,7 +110,7 @@ class _SignupState extends State<Signup> {
                       const SizedBox(
                         height: 20,
                       ),
-                      SvgPicture.asset('lib/asset/login_signup_text.svg'),
+                      SvgPicture.asset('lib/asset/signup_text.svg'),
                       const SizedBox(
                         height: 25,
                       ),
@@ -119,7 +119,7 @@ class _SignupState extends State<Signup> {
                         child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.7,
                             child: Text(
-                              'Email',
+                              'Name',
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 15,
@@ -127,28 +127,8 @@ class _SignupState extends State<Signup> {
                             )),
                       ),
                       MyTextField(
-                        controller: emailController,
-                        hintText: 'Email',
-                        obscureText: false,
-                      ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: Text(
-                              'Email',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15,
-                                  color: Colors.white),
-                            )),
-                      ),
-                      MyTextField(
-                        controller: passwordController,
-                        hintText: 'password',
+                        controller: nameController,
+                        hintText: 'John Doe',
                         obscureText: true,
                       ),
                       const SizedBox(
@@ -167,8 +147,48 @@ class _SignupState extends State<Signup> {
                             )),
                       ),
                       MyTextField(
+                        controller: emailController,
+                        hintText: 'example@email.com',
+                        obscureText: false,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white),
+                            )),
+                      ),
+                      MyTextField(
+                        controller: passwordController,
+                        hintText: '***********',
+                        obscureText: true,
+                      ),
+                      const SizedBox(
+                        height: 25,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            child: Text(
+                              'Confirm Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15,
+                                  color: Colors.white),
+                            )),
+                      ),
+                      MyTextField(
                         controller: confirmPasswordController,
-                        hintText: 'Confirm password',
+                        hintText: '***********',
                         obscureText: true,
                       ),
                       const SizedBox(
@@ -218,17 +238,7 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
               ),
-              //icon
-
-              //welcome message
-
-              //username
-
-              //password
-
-              //button
-
-              //forgot pasword
+            
               
             ],
           ),
