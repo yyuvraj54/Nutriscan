@@ -14,7 +14,7 @@ class MyTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.symmetric(horizontal: 25.0),
+      padding:  const EdgeInsets.symmetric(horizontal: 10.0),
       child: TextField(
         
         controller: controller,
@@ -22,13 +22,15 @@ class MyTextField extends StatelessWidget {
         decoration: InputDecoration(
           
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).colorScheme.tertiary),
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Colors.white),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Theme.of(context).colorScheme.primary),
+            borderRadius: BorderRadius.circular(12),
+            borderSide: BorderSide(color: Color.fromARGB(255, 112, 253, 142)),
           ),
           hintText: hintText,
-          hintStyle: TextStyle(color: Theme.of(context).colorScheme.primary), 
+          hintStyle: TextStyle(color: Colors.white), 
         ),
         
       ),
