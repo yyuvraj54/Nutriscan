@@ -1,16 +1,23 @@
+import 'dart:html';
 import 'dart:io';
 
 import 'package:camera/camera.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:nutriscan/pages/Sscan_page.dart';
-import 'package:nutriscan/pages/camera_page.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:nutriscan/firebase_options.dart';
+
+import 'package:nutriscan/pages/gemini_api.dart';
 
 List<CameraDescription>? cameras;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  Gemini.init(apiKey: 'AIzaSyAeaWmJGffYG1ERxB6ifLcr8Xet9ULgEg0');
   runApp(const MyApp());
 }
 
@@ -27,7 +34,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: CameraScreen(),
+      home: APIPage(),
     );
   }
 }
