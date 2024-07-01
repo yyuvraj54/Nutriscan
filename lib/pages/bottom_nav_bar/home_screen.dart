@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:nutriscan/pages/diet_plan.dart';
 import 'package:nutriscan/pages/signin_page.dart';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import '../../services/authservice.dart';
+import '../text_slider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -78,27 +79,30 @@ class _HomeScreenState extends State<HomeScreen> {
             // Card view with an image
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Card(
-                elevation: 5,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(8.0),
-                      child: Image.asset(
-                        'lib/asset/helth.png', // Replace 'assets/your_image.jpg' with your image path
-                        fit: BoxFit.cover,
+              child: GestureDetector(
+                onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=> HealthChart()));},
+                child: Card(
+                  elevation: 5,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'lib/asset/helth.png', // Replace 'assets/your_image.jpg' with your image path
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        'Check Your Health Now',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Check Your Health Now',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -126,10 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 200, // Adjust the height as needed
                           ),
                           SizedBox(height: 8),
-                          Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-                            style: TextStyle(fontSize: 16),
-                          ),
+                          TextRotator(texts: [ 'Eating a handful of nuts a day can boost your brainpower!' "Blueberries are dubbed 'brain berries' because they can improve memory.", "Just one red bell pepper gives you 300% of your daily vitamin C.", "Oats can help lower your cholesterol and keep your heart healthy.", "Dark leafy greens like spinach and kale are packed with iron and calcium.", "Greek yogurt is a great source of protein and probiotics for gut health.", "Sweet potatoes are a great source of beta-carotene, which promotes eye health.", "Quinoa is a complete protein, meaning it contains all nine essential amino acids.", "Eating an apple a day really can keep the doctor away; it’s great for digestion and your immune system.", "Chia seeds are tiny but mighty, loaded with omega-3 fatty acids, fiber, and protein." ],),
                         ],
                       ),
                     ),

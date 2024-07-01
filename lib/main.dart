@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:nutriscan/firebase_options.dart';
-import 'package:nutriscan/pages/gemini_api.dart';
+import 'package:nutriscan/pages/model_page.dart';
 import 'package:nutriscan/pages/signin_page.dart';
 import 'package:nutriscan/pages/user_info_screen.dart';
 import 'package:nutriscan/services/auth/authgate.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey.shade800),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,

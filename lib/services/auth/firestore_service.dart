@@ -1,14 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:nutriscan/utils/utils.dart';
 import '../../models/user_model.dart';
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final String _collectionName = 'users';
 
-  Future<void> addUser(UserModel user) async {
+  Future<void> addUser(BuildContext context,UserModel user) async {
     try {
       // Check if the user already exists
-      final existingUser = await getUser(user.id);
+      final existingUser = await getUser(context,user!.id);
       if (existingUser == null) {
         // User doesn't exist, add them to Firestore
         await _firestore.collection(_collectionName).doc(user.id).set(user.toJson());
@@ -22,7 +24,7 @@ class FirestoreService {
     }
   }
 
-  Future<UserModel?> getUser(String userId) async {
+  Future<UserModel?> getUser(BuildContext context, String userId) async {
     try {
       DocumentSnapshot<Map<String, dynamic>> userSnapshot =
       await _firestore.collection(_collectionName).doc(userId).get();
@@ -30,7 +32,7 @@ class FirestoreService {
       if (userSnapshot.exists) {
         return UserModel.fromJson(userSnapshot.data()!);
       } else {
-        print('User with ID $userId not found');
+        showSnakBar(context,'User with ID $userId not found');
         return null;
       }
     } catch (e) {

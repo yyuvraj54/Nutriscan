@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:nutriscan/services/auth/firestore_service.dart';
 
 import '../../models/user_model.dart';
 import '../../services/authservice.dart';
@@ -7,32 +9,47 @@ import '../signin_page.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
+
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final Service = FirestoreService();
+  final firebase = FirebaseAuth.instance;
+  // Replace this with your user data
+  UserModel user = UserModel(
+    id: '1',
+    name: 'John Doe',
+    age: '30',
+    height: '6\'2"',
+    weight: '180 lbs',
+    gender: 'Male',
+    healthConditions: 'None',
+    foodType: 'Vegetarian',
+    email: 'john.doe@example.com',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    getUser();
+  }
+  void getUser() async {
+    final UserModel? getuser = await Service.getUser(context,firebase.currentUser!.uid);
+    if(getuser==null){
+      print (getuser);
+      return;
+    }
+    setState((){
+      user=getuser;
+    });}
   @override
   Widget build(BuildContext context) {
-    // Replace this with your user data
-    UserModel user = UserModel(
-      id: '1',
-      name: 'John Doe',
-      age: '30',
-      height: '6\'2"',
-      weight: '180 lbs',
-      gender: 'Male',
-      healthConditions: 'None',
-      foodType: 'Vegetarian',
-      email: 'john.doe@example.com',
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
-        // Optionally, you can add your app logo here
-        // leading: Image.asset('assets/logo.png'), // Example of adding logo
-      ),
+     ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

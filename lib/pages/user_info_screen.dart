@@ -64,10 +64,10 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
         email: email, // Assuming email is predefined or obtained from authentication
       );
 
-      FirestoreService().addUser(user).then((_) {
+      FirestoreService().addUser(context,user).then((_) {
         print('User added successfully');
         // Navigate to HomeScreen after user data is uploaded
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigation()));
       }).catchError((e) {
         print('Failed to add user: $e');
       });
@@ -77,6 +77,7 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255,103, 229, 115,),
       appBar: AppBar(title: Text('User Information')),
       body: SingleChildScrollView(
         child: Padding(
@@ -84,24 +85,29 @@ class _UserInfoScreenState extends State<UserInfoScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              MyTextField(controller: nameController, hintText: 'Name', obscureText: false,),
+              MyTextField(inta: 98,intb: 179,intc: 255, controller: nameController, hintText: 'Name', obscureText: false,),
               SizedBox(height: 20),
-              MyTextField(controller: ageController, hintText: 'Age', obscureText: false,),
+              MyTextField(inta: 98,intb: 179,intc: 255,controller: ageController, hintText: 'Age', obscureText: false,),
               SizedBox(height: 20),
-              MyTextField(controller: weightController, hintText: 'Weight', obscureText: false,),
+              MyTextField(inta: 98,intb: 179,intc: 255,controller: weightController, hintText: 'Weight', obscureText: false,),
               SizedBox(height: 20),
-              MyTextField(controller: heightController, hintText: 'Height', obscureText: false,),
+              MyTextField(inta: 98,intb: 179,intc: 255,controller: heightController, hintText: 'Height', obscureText: false,),
               SizedBox(height: 20),
-              MyTextField(controller: genderController, hintText: 'Gender', obscureText: false,),
+              MyTextField(inta: 98,intb: 179,intc: 255,controller: genderController, hintText: 'Gender', obscureText: false,),
               SizedBox(height: 20),
-              MyTextField(controller: healthController, hintText: 'Health Conditions', obscureText: false,),
+              MyTextField(inta: 98,intb: 179,intc: 255,controller: healthController, hintText: 'Health Conditions', obscureText: false,),
               SizedBox(height: 20),
-              MyTextField(controller: foodTypeController, hintText: 'Food Type', obscureText: false,),
+              MyTextField(inta: 298,intb: 179,intc: 255,controller: foodTypeController, hintText: 'Food Type', obscureText: false,),
               SizedBox(height: 40), // Adjusting space between text fields and button
               Center(
                 child: ElevatedButton(
+
                   onPressed: onContinueCilcked,
-                  child: Text('Continue'),
+                  child: Text('Continue',style: TextStyle(color: Colors.white),),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color?>(Color.fromARGB(255,98, 179, 255)),
+                      foregroundColor: MaterialStateProperty.all<Color?>(Color.fromARGB(255,98, 179, 255))
+                  ),
                 ),
               ),
               SizedBox(height: 40), 

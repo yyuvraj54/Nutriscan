@@ -20,6 +20,7 @@ class APIPage extends StatefulWidget {
 }
 
 class _APIPageState extends State<APIPage> {
+  final model = Gemini.instance;
   final TextEditingController _textController = TextEditingController();
   File? _image;
   String output = '';
@@ -38,10 +39,11 @@ class _APIPageState extends State<APIPage> {
   }
 
   Future<void> _sendData() async {
-    final gemini = Gemini.instance;
 
-    gemini.textAndImage(
-        text: 'The person is male and suffering from Diabetes,age-27,height-5foot9inches, weight-68kg,is a veg person,You are an expert in nutritionist where you need to see the food items from the image,answer all the questions related to the food in the json format given below\n' +
+
+    model.textAndImage(
+        text: 'The person is male and suffering from Diabetes,age-27,height-5foot9inches, weight-68kg,is a veg person,\n'
+            'You are an expert in nutritionist where you need to see the food items from the image,answer all the questions related to the food in the json format given below\n' +
             '{' +
             'Name : name of the food,\n' +
             'Calories : integer value calories (Like : 100 calories),\n' +

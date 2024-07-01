@@ -1,6 +1,6 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:nutriscan/pages/custom_camera.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final int pageIndex;
@@ -19,15 +19,15 @@ class CustomBottomNavigationBar extends StatelessWidget {
       children: [
         Container(
           child: Padding(
-            padding: EdgeInsets.only(top: 18.0, ),
+            padding: EdgeInsets.only(top: 18.0),
             child: BottomAppBar(
               elevation: 0.0,
-              color: Colors.white, // Set background color to white
+              color: Colors.white,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: Container(
                   height: 60,
-                  color: Colors.green, // Color for the selected item indicator
+                  color: Colors.green,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -51,7 +51,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: Platform.isAndroid ? 28 : 32, // Adjusted position
+          bottom: Platform.isAndroid ? 28 : 32,
           child: Container(
             margin: const EdgeInsets.only(top: 10),
             height: 64,
@@ -59,8 +59,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
             child: FloatingActionButton(
               backgroundColor: Colors.white,
               elevation: 0,
-              onPressed: () => debugPrint("Add Button pressed"), // yaha se open hoga camera wala screen tik h abhishek!!
-               shape: RoundedRectangleBorder(
+              onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CameraScreen())),
+              shape: RoundedRectangleBorder(
                 side: const BorderSide(width: 3, color: Colors.green),
                 borderRadius: BorderRadius.circular(100),
               ),
@@ -89,13 +89,14 @@ class CustomBottomNavigationBar extends StatelessWidget {
           Icon(
             icon,
             color: isSelected ? Colors.white : Colors.grey,
+            size: isSelected ? 28.0 : 24.0, // Change the size to emphasize selected icon
           ),
           SizedBox(height: 4),
           Text(
             label,
             style: TextStyle(
               color: isSelected ? Colors.white : Colors.grey,
-              fontWeight: FontWeight.bold,
+              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
             ),
           ),
         ],
