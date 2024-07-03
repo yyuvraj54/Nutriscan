@@ -10,55 +10,57 @@ learning to provide personalized diet
 recommendations and nutritional analysis, making
 healthy eating more accessible regardless of your
 needs or location.
-
+- you can scan food items with your device's camera. Our AI instantly analyzes and provides detailed nutritional information, empowering you to
+make informed choices, even when dining out or on-the-go.In essence, you get a personalized
+diet plan crafted by AI technology and the ability to access accurate nutritional data for any
+food item, powered by machine learning capabilities. It's like having a personal nutritionist and
+food analyst in your pocket, making healthy eating easier than ever.
 
 ## Use Cases
 
 <details>
 <summary>User Profile Creation</summary>
-
-- Alex downloads the NutriScan app and sets up a personalized profile by entering details such as weight, height, age, gender, dietary restrictions, and fitness goals.
+Alex downloads the NutriScan app and sets up a personalized profile by entering details such as weight, height, age, gender, dietary restrictions, and fitness goals.
 </details>
 
 <details>
 <summary>Customized Diet Plan</summary>
-
-- NutriScan generates a tailored diet plan for Alex. The plan includes meal recommendations, portion sizes, and daily calorie targets based on Alex’s fitness goals (e.g., weight loss, muscle gain, or maintaining a balanced diet).
+NutriScan generates a tailored diet plan for Alex. The plan includes meal recommendations, portion sizes, and daily calorie targets based on Alex’s fitness goals (e.g., weight loss, muscle gain, or maintaining a balanced diet).
 </details>
 
 <details>
 <summary>Food Scanning and Nutritional Analysis</summary>
-
-- While grocery shopping, Alex uses the app’s food scanning feature to scan barcodes or take photos of food items.
+While grocery shopping, Alex uses the app’s food scanning feature to scan barcodes or take photos of food items.
 </details>
 
 <details>
 <summary>Meal Preparation Guidance</summary>
-
-- The app suggests recipes and meal preparation tips using the scanned ingredients, aligning with Alex’s dietary plan.
+The app suggests recipes and meal preparation tips using the scanned ingredients, aligning with Alex’s dietary plan.
 </details>
 
 <details>
-<summary>Integration with Wearables</summary>
-
-- NutriScan integrates with wearable fitness trackers to monitor Alex’s physical activity.
+<summary>AI and Machine Learning Features</summary>
+Maintaining a balanced diet is challenging in our busy lives. Our innovative solution uses cutting-edge AI and machine learning to simplify healthy eating, no matter your needs or location. First, create a personalized profile with details like weight, height, age, gender, and any dietary restrictions. You can scan food items with your device's camera. Our AI instantly analyzes and provides detailed nutritional information, empowering you to make informed choices, even when dining out or on-the-go. In essence, you get a personalized diet plan crafted by AI technology and the ability to access accurate nutritional data for any food item, powered by machine learning capabilities. It's like having a personal nutritionist and food analyst in your pocket, making healthy eating easier than ever.
 </details>
 
 
 
-## Advanced Features and Technologies
 
-- **Retrieval Augmented Generation**: Utilizes advanced data retrieval techniques to enhance the AI's recommendation accuracy.
+## Tech Stack And Packages Used
 
-- **Custom Trained MultiModel Model**: Employs a multimodal model trained specifically for diet and nutrition applications (Pali Gemma model).
-
-- **Android AI SDK**: Facilitates the integration of AI capabilities into the Android application.
-
-- **HuggingFace Model Deployment**: Leverages HuggingFace for deploying machine learning models.
-
-- **FineTuning**: Fine-tuning models to improve performance based on specific use cases.
-
-- **Flutter, Retrofit**: Utilizes modern Android development frameworks for efficient and scalable app development.
+- Flutter
+- Dart
+- image_picker
+- flutter_gemini
+- cupertino_icons
+- carousel_slider
+- scanning_effect
+- firebase_core
+- cloud_firestore
+- firebase_auth
+- flutter_svg
+- timelines
+- camera
 
 
 ## Screenshots
