@@ -98,3 +98,19 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## Developers✨
+
+
+<table>
+  <tbody><tr>
+    <td align="center"><a href="https://github.com/yyuvraj54"><img alt="" src="https://avatars.githubusercontent.com/yyuvraj54" width="100px;"><br><sub><b>Yuvraj Singh </b></sub></a></a></td>
+    <td align="center"><a href="https://github.com/AbhiSharma096"><img alt="" src="https://avatars.githubusercontent.com/AbhiSharma096" width="100px;"><br><sub><b>Abhishek Sharma</b></sub></a></td>
+  </tr>
+</tbody></table>
+
+![Uses Git](https://forthebadge.com/images/badges/uses-git.svg)
+![Built with love](https://forthebadge.com/images/badges/built-with-love.svg)
+![Built By Developers](https://forthebadge.com/images/badges/built-by-developers.svg)
+
