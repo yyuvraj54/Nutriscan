@@ -93,7 +93,7 @@ class _HealthChartState extends State<HealthChart> {
                child: Column(
                  mainAxisAlignment: MainAxisAlignment.center,
                  children: [
-                   Time
+                   
 
                  ],
                ),
