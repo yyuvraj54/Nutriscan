@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:nutriscan/component/mytext_field.dart';
 import 'package:nutriscan/pages/user_info_screen.dart';
 import 'package:nutriscan/services/authservice.dart';
+import 'package:nutriscan/pages/onboarding_screens/onboarding_screen.dart';
 
 class Signin extends StatefulWidget {
   final Function()? onTap;
@@ -39,7 +40,7 @@ class _SigninState extends State<Signin> {
       // Hide progress indicator
       // ignore: use_build_context_synchronously
       Navigator.of(context).pop(); // Close the progress dialog
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => UserInfoScreen(),),);
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnboardingScreen(),),);
       // Optionally, navigate to a new screen or perform any other action upon successful sign-in
     } catch (e) {
       // Hide progress indicator
@@ -97,7 +98,7 @@ class _SigninState extends State<Signin> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         SvgPicture.asset('lib/asset/login_signup_text.svg'),
                         const SizedBox(
@@ -162,7 +163,7 @@ class _SigninState extends State<Signin> {
                           ),
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 10,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
